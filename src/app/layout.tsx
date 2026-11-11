@@ -21,6 +21,8 @@ export default function RootLayout({
   return (
     <html lang="ar" dir="rtl" className="scroll-smooth">
       <head>
+        <link rel="preconnect" href="https://bmi-app-link.vercel.app" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://bmi-app-link.vercel.app" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"

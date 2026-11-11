@@ -1,8 +1,18 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Heart, ShieldCheck, Mail, Phone, MapPin } from 'lucide-react';
 
 export default function Footer() {
+  const pathname = usePathname();
+
+  // Do not render footer on portal page so iframe occupies full viewport cleanly
+  if (pathname === '/portal') {
+    return null;
+  }
+
   return (
     <footer className="mt-20 border-t border-slate-200/80 bg-navy text-white">
       {/* Upper subtle accent bar */}
