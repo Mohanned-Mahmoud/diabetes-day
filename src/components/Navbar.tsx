@@ -10,20 +10,11 @@ export default function Navbar() {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  // If we are on /portal in full-screen mode, let portal handle its dedicated control bar
-  const isPortal = pathname === '/portal';
-
   const navLinks = [
     { href: '/', label: 'الرئيسية' },
     { href: '/portal', label: 'حاسبة كتلة الجسم (BMI)' },
-    { href: '/contact', label: 'تواصل معنا' },
     { href: '/about', label: 'من نحن' },
   ];
-
-  if (isPortal) {
-    // When inside /portal, keep it clean and minimal to prioritize the embedded experience
-    return null;
-  }
 
   return (
     <header className="sticky top-0 z-50 w-full transition-all">

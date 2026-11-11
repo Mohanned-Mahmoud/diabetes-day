@@ -37,7 +37,7 @@ export default function RootLayout({
       <body className="min-h-screen bg-slate-50/50 text-slate-800 antialiased selection:bg-primary/20 selection:text-navy">
         <div className="flex min-h-screen flex-col">
           <Navbar />
-          <main className="flex-1">{children}</main>
+          <main className="flex-1 flex flex-col">{children}</main>
           <Footer />
         </div>
       </body>
