@@ -9,6 +9,7 @@ import { Menu, X, ArrowUpRight, Activity } from 'lucide-react';
 export default function Navbar() {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const isPortal = pathname === '/portal';
 
   const navLinks = [
     { href: '/', label: 'الرئيسية' },
@@ -17,9 +18,15 @@ export default function Navbar() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full transition-all">
+    <header
+      className={`w-full transition-all z-50 ${
+        isPortal
+          ? 'fixed top-0 left-0 right-0 pointer-events-none'
+          : 'sticky top-0'
+      }`}
+    >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-3 sm:pt-4">
-        <nav className="glass-panel relative flex items-center justify-between rounded-2xl px-5 py-3 shadow-[0_4px_25px_rgba(26,70,104,0.06)] border border-white/70">
+        <nav className="glass-panel pointer-events-auto relative flex items-center justify-between rounded-2xl px-5 py-3 shadow-[0_4px_25px_rgba(26,70,104,0.08)] border border-white/70">
           {/* Logo & Brand Tag */}
           <div className="flex items-center gap-3">
             <Link
@@ -91,7 +98,7 @@ export default function Navbar() {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden mx-4 mt-2 rounded-2xl glass-panel p-4 shadow-xl border border-white/80 animate-in fade-in slide-in-from-top-2 duration-200">
+        <div className="pointer-events-auto md:hidden mx-4 mt-2 rounded-2xl glass-panel p-4 shadow-xl border border-white/80 animate-in fade-in slide-in-from-top-2 duration-200">
           <div className="flex flex-col gap-2">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
