@@ -19,20 +19,20 @@ export default function HomePage() {
           {/* Badge */}
           <div className="inline-flex items-center gap-2 rounded-full glass-panel px-4 py-1.5 text-xs sm:text-sm font-bold text-navy shadow-sm border border-secondary/30">
             <span className="flex h-2 w-2 rounded-full bg-secondary animate-ping" />
-            <span>فعاليات اليوم العالمي للسكري ٢٠٢٦ | مبادرة توازنها صح</span>
+            <span>فعاليات اليوم العالمي للسكري و اسبوع التوعية بالسمنة ٢٠٢٦ | مبادرة توازنها صح</span>
           </div>
 
           {/* Main Title */}
           <h1 className="mt-6 text-3xl font-black tracking-tight text-navy sm:text-5xl md:text-6xl max-w-4xl mx-auto leading-tight sm:leading-snug">
-            صحتك تبدأ بتوازنها..{' '}
+            ابدأها صح...{' '}
             <span className="bg-gradient-to-l from-primary via-secondary to-navy bg-clip-text text-transparent">
-              معاً نحو حياة خالية من مضاعفات السكري
+              ووازنها صح
             </span>
           </h1>
 
           {/* Subtitle */}
           <p className="mt-5 text-base sm:text-lg md:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
-            بوابة رقمية متكاملة لليوم العالمي للسكري، تمنحك استكشافاً تفاعلياً، وتواصلاً مباشراً مع الكفاءات الطبية، ورسالة واضحة لحماية صحتك وصحة أسرتك.
+            حملة مجتمعية للتوعية بالسمنة وأمراض السكري، تجمع بين الأنشطة الميدانية والأدوات الرقمية، وتدعم الكشف المبكر والوصول إلى الرعاية والمتابعة المناسبة في المملكة.
           </p>
 
           {/* Interactive Living Balance Ring */}
@@ -72,7 +72,7 @@ export default function HomePage() {
           <div className="relative z-10 max-w-2xl">
             <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3.5 py-1 text-xs font-semibold text-primary backdrop-blur-md">
               <ShieldCheck className="h-4 w-4" />
-              اليوم العالمي للسكري — خطواتك تبدأ اليوم
+              اليوم العالمي للسكري و اسبوع التوعية بالسمنة — خطواتك تبدأ اليوم
             </span>
             <h2 className="mt-4 text-2xl font-black sm:text-4xl leading-tight">
               لا تنتظر ظهور الأعراض.. ابدأ فحصك وتواصل مع طبيبك الآن

@@ -36,7 +36,7 @@ export default function Footer() {
             </p>
             <div className="mt-6 flex items-center gap-2 text-xs text-primary">
               <ShieldCheck className="h-4 w-4" />
-              <span>محتوى طبي معتمد بمناسبة اليوم العالمي للسكري</span>
+              <span>محتوى طبي معتمد بمناسبة اليوم العالمي للسكري و اسبوع التوعية بالسمنة</span>
             </div>
           </div>
 
@@ -63,7 +63,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/about" className="transition hover:text-primary">
-                  عن المبادرة واليوم العالمي للسكري
+                  عن المبادرة واليوم العالمي للسكري و اسبوع التوعية بالسمنة
                 </Link>
               </li>
             </ul>

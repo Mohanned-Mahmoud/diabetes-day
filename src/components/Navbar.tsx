@@ -45,7 +45,7 @@ export default function Navbar() {
             </Link>
             <div className="hidden items-center gap-1.5 rounded-full bg-secondary/15 px-3 py-1 text-xs font-semibold text-navy sm:flex">
               <span className="h-1.5 w-1.5 rounded-full bg-secondary animate-pulse" />
-              اليوم العالمي للسكري
+              اليوم العالمي للسكري و اسبوع التوعية بالسمنة
             </div>
           </div>
 

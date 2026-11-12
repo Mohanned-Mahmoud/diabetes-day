@@ -36,7 +36,7 @@ export default function HeroPortalCards() {
       badge: 'تواصل مباشر',
       badgeColor: 'bg-primary/20 text-navy border-primary/40',
       description:
-        'سجل بياناتك للتواصل الفوري معنا (الاسم، ورقم الهاتف، والبلد). تُحفظ بياناتك بشكل آمن ومباشر في قاعدة بيانات نيون.',
+        'سجّل اسمك ورقم هاتفك وبلدك ليتواصل معك فريقنا.',
       icon: MessageSquareHeart,
       href: '/contact',
       ctaText: 'تواصل معنا الآن',
@@ -44,12 +44,11 @@ export default function HeroPortalCards() {
       borderColor: 'hover:border-primary',
       iconBg: 'bg-gradient-to-tr from-navy to-navy-light text-primary',
       glowColor: 'rgba(101, 203, 204, 0.35)',
-      tagline: 'ربط مباشر بقاعدة بيانات Neon السحابية',
     },
     {
       id: 'about',
       title: 'من نحن وقصة توازنها',
-      badge: 'اليوم العالمي للسكري',
+      badge: 'اليوم العالمي للسكري و اسبوع التوعية بالسمنة',
       badgeColor: 'bg-vitality/15 text-vitality-hover border-vitality/30',
       description:
         'تعرّف على رسالة توازنها، وأهداف حملتنا للتوعية الشاملة بمرض السكري وسبل الوقاية منه لتعزيز جودة الحياة والتوازن الأيضي.',
@@ -178,10 +177,12 @@ export default function HeroPortalCards() {
 
               {/* Card Bottom: Action CTA Button */}
               <div className="relative z-10 pt-4 border-t border-slate-100">
-                <div className="mb-3 text-[11px] font-semibold text-slate-400 flex items-center gap-1.5">
-                  <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-                  <span>{card.tagline}</span>
-                </div>
+                {card.tagline && (
+                  <div className="mb-3 text-[11px] font-semibold text-slate-400 flex items-center gap-1.5">
+                    <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+                    <span>{card.tagline}</span>
+                  </div>
+                )}
 
                 <Link
                   href={card.href}

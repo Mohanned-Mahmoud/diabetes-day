@@ -67,12 +67,12 @@ export async function POST(request: Request) {
       },
       { status: 201 }
     );
-  } catch (error: any) {
+  } catch (error) {
     console.error('Contact submission error:', error);
     return NextResponse.json(
       {
         success: false,
-        error: error.message || 'حدث خطأ أثناء حفظ البيانات، يرجى المحاولة مرة أخرى.',
+        error: 'حدث خطأ أثناء حفظ البيانات، يرجى المحاولة مرة أخرى.',
       },
       { status: 500 }
     );

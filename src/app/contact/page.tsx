@@ -11,8 +11,6 @@ import {
   Mail,
   MapPin,
   ShieldCheck,
-  Sparkles,
-  Database,
   CalendarCheck,
 } from 'lucide-react';
 
@@ -21,7 +19,6 @@ export default function ContactPage() {
   const [fullName, setFullName] = useState('');
   const [mobile, setMobile] = useState('');
   const [city, setCity] = useState('');
-  const [agreed, setAgreed] = useState(true);
 
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
@@ -41,11 +38,6 @@ export default function ContactPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setErrorMessage(null);
-
-    if (!agreed) {
-      setErrorMessage('يرجى الموافقة على شروط وسياسة الخصوصية');
-      return;
-    }
 
     if (fullName.trim().length < 2) {
       setErrorMessage('يرجى كتابة الاسم بالكامل (حرفين على الأقل)');
@@ -84,12 +76,13 @@ export default function ContactPage() {
       const data = await res.json();
 
       if (!res.ok || !data.success) {
-        throw new Error(data.error || 'فشل إرسال البيانات، يرجى المحاولة مرة أخرى.');
+        setErrorMessage(data.error || 'فشل إرسال البيانات، يرجى المحاولة مرة أخرى.');
+        return;
       }
 
       setIsSuccess(true);
-    } catch (err: any) {
-      setErrorMessage(err.message || 'حدث خطأ غير متوقع أثناء الاتصال بقاعدة البيانات');
+    } catch {
+      setErrorMessage('فشل إرسال البيانات، يرجى المحاولة مرة أخرى.');
     } finally {
       setIsLoading(false);
     }
@@ -108,20 +101,11 @@ export default function ContactPage() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header Breadcrumb & Tag */}
         <div className="text-center max-w-2xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-2 rounded-full glass-panel px-4 py-1.5 text-xs font-bold text-navy shadow-sm border border-primary/30"
-          >
-            <Database className="h-3.5 w-3.5 text-primary" />
-            <span>تواصل معنا | متصل مباشرة بـ Neon Database</span>
-          </motion.div>
-
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="mt-4 text-3xl font-black text-navy sm:text-4xl md:text-5xl"
+            className="text-3xl font-black text-navy sm:text-4xl md:text-5xl"
           >
             تواصل معنا
           </motion.h1>
@@ -132,7 +116,7 @@ export default function ContactPage() {
             transition={{ delay: 0.15 }}
             className="mt-3 text-sm sm:text-base text-slate-600 leading-relaxed"
           >
-            بمناسبة اليوم العالمي للسكري، نسعد بتواصلك معنا ومساعدتك والإجابة على كافة استفساراتك.
+            بمناسبة اليوم العالمي للسكري و اسبوع التوعية بالسمنة، نسعد بتواصلك معنا ومساعدتك والإجابة على كافة استفساراتك.
           </motion.p>
         </div>
 
@@ -155,7 +139,7 @@ export default function ContactPage() {
                   شكراً لك.. تم استلام بياناتك بنجاح!
                 </h3>
                 <p className="mt-3 text-sm sm:text-base text-slate-600 max-w-md mx-auto leading-relaxed">
-                  تم حفظ بياناتك وتأكيدها في قاعدة بيانات توازنها (Neon PostgreSQL). سيتواصل معك فريقنا عبر الهاتف خلال وقت وجيز.
+                  سيتواصل معك فريقنا عبر الهاتف خلال وقت وجيز.
                 </p>
 
                 <div className="mt-6 inline-flex items-center gap-2 rounded-2xl bg-emerald-50 px-4 py-2 text-xs font-semibold text-emerald-800 border border-emerald-200">
@@ -287,21 +271,6 @@ export default function ContactPage() {
                     </datalist>
                   </div>
 
-                  {/* Consent Checkbox */}
-                  <div className="pt-2">
-                    <label className="flex items-start gap-3 cursor-pointer select-none">
-                      <input
-                        type="checkbox"
-                        checked={agreed}
-                        onChange={(e) => setAgreed(e.target.checked)}
-                        className="mt-1 h-5 w-5 rounded-lg border-slate-300 text-navy focus:ring-primary accent-navy"
-                      />
-                      <span className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                        أوافق على التواصل معي وتحويلي إلى الخدمة الطبية المناسبة وفق سياسة الخصوصية وسرية المعلومات الطبية لمبادرة توازنها صح.
-                      </span>
-                    </label>
-                  </div>
-
                   {/* Submit Button */}
                   <div className="pt-4">
                     <button
@@ -312,7 +281,7 @@ export default function ContactPage() {
                       {isLoading ? (
                         <>
                           <div className="h-5 w-5 rounded-full border-2 border-white/30 border-t-white animate-spin" />
-                          <span>جاري الحفظ في قاعدة بيانات نيون...</span>
+                          <span>جارٍ إرسال البيانات...</span>
                         </>
                       ) : (
                         <>
@@ -377,16 +346,6 @@ export default function ContactPage() {
               </div>
             </div>
 
-            {/* Privacy & Guarantee Card */}
-            <div className="rounded-3xl bg-gradient-to-br from-navy to-navy-dark p-6 sm:p-7 text-white shadow-lg">
-              <div className="flex items-center gap-2.5 text-primary text-sm font-bold">
-                <ShieldCheck className="h-5 w-5" />
-                <span>ضمان الخصوصية وسرية السجلات</span>
-              </div>
-              <p className="mt-3 text-xs sm:text-sm text-slate-300 leading-relaxed">
-                يتم تخزين بيانات التواصل وفق أعلى معايير الحماية والتشفير بقاعدة بيانات Neon السحابية، ولا تتم مشاركة معلوماتك مع أي طرف خارجي.
-              </p>
-            </div>
           </motion.div>
         </div>
       </div>
