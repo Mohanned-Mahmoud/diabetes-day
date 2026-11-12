@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Heart, ShieldCheck, Mail, Phone, MapPin } from 'lucide-react';
+import { Heart, ShieldCheck, Mail } from 'lucide-react';
 
 export default function Footer() {
   const pathname = usePathname();
@@ -69,25 +69,19 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contact & Support */}
           <div>
             <h3 className="text-sm font-bold tracking-wider text-slate-200">
-              الدعم والاستفسارات
+              التشغيل والتنفيذ
             </h3>
-            <ul className="mt-4 space-y-3 text-sm text-slate-300">
-              <li className="flex items-center gap-2.5">
-                <Mail className="h-4 w-4 text-primary shrink-0" />
-                <span>support@tawazonha.com</span>
-              </li>
-              <li className="flex items-center gap-2.5">
-                <Phone className="h-4 w-4 text-primary shrink-0" />
-                <span dir="ltr">+966 50 000 0000</span>
-              </li>
-              <li className="flex items-center gap-2.5">
-                <MapPin className="h-4 w-4 text-primary shrink-0" />
-                <span>المملكة العربية السعودية والوطن العربي</span>
-              </li>
-            </ul>
+            <p className="mt-4 text-sm text-slate-300"><bdi>Smart Health Solution</bdi></p>
+            <p className="mt-4 text-sm font-bold text-slate-200">للتواصل والتنسيق</p>
+            <a
+              href="mailto:info@shs-gulf.com"
+              className="mt-2 inline-flex items-center gap-2.5 text-sm text-slate-300 underline underline-offset-4 hover:text-white"
+            >
+              <Mail aria-hidden="true" className="h-4 w-4 shrink-0 text-primary" />
+              <bdi>info@shs-gulf.com</bdi>
+            </a>
           </div>
         </div>
 

@@ -7,11 +7,7 @@ import {
   Send,
   CheckCircle2,
   AlertCircle,
-  Phone,
-  Mail,
-  MapPin,
   ShieldCheck,
-  CalendarCheck,
 } from 'lucide-react';
 
 export default function ContactPage() {
@@ -121,13 +117,13 @@ export default function ContactPage() {
         </div>
 
         {/* Content Section: Form & Info Sidebars */}
-        <div className="mt-12 grid grid-cols-1 gap-10 lg:grid-cols-12 lg:items-start">
+        <div className="mx-auto mt-12 max-w-3xl">
           {/* Main Form Container */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="lg:col-span-7 rounded-3xl glass-panel p-6 sm:p-10 shadow-xl border border-white/80 bg-white/95"
+            className="rounded-3xl glass-panel p-6 sm:p-10 shadow-xl border border-white/80 bg-white/95"
           >
             {isSuccess ? (
               /* Success Celebration State */
@@ -294,58 +290,6 @@ export default function ContactPage() {
                 </div>
               </form>
             )}
-          </motion.div>
-
-          {/* Sidebar Info Cards */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-            className="lg:col-span-5 space-y-6"
-          >
-            {/* Direct Contact Card */}
-            <div className="rounded-3xl glass-panel p-6 sm:p-7 shadow-md border border-slate-200/80">
-              <h3 className="text-lg font-bold text-navy flex items-center gap-2">
-                <CalendarCheck className="h-5 w-5 text-primary" />
-                <span>مواعيد التواصل وفريق الدعم</span>
-              </h3>
-              <p className="mt-2 text-xs sm:text-sm text-slate-600 leading-relaxed">
-                فريقنا متاح للتواصل والرد على كافة الاستفسارات طوال أيام الأسبوع من الساعة ٩ صباحاً وحتى ٩ مساءً بتوقيت مكة المكرمة.
-              </p>
-
-              <div className="mt-6 space-y-3.5 border-t border-slate-100 pt-5 text-sm">
-                <div className="flex items-center gap-3 text-slate-700">
-                  <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary/10 text-primary shrink-0">
-                    <Phone className="h-4 w-4" />
-                  </div>
-                  <div>
-                    <span className="text-xs text-slate-400 block">رقم الاتصال المباشر</span>
-                    <span className="font-bold font-mono" dir="ltr">+966 50 000 0000</span>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-3 text-slate-700">
-                  <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-secondary/10 text-secondary shrink-0">
-                    <Mail className="h-4 w-4" />
-                  </div>
-                  <div>
-                    <span className="text-xs text-slate-400 block">البريد الإلكتروني للرعاية</span>
-                    <span className="font-semibold">care@tawazonha.com</span>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-3 text-slate-700">
-                  <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-vitality/10 text-vitality shrink-0">
-                    <MapPin className="h-4 w-4" />
-                  </div>
-                  <div>
-                    <span className="text-xs text-slate-400 block">التغطية الجغرافية</span>
-                    <span className="font-semibold">جميع مناطق المملكة والخليج العربي</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
           </motion.div>
         </div>
       </div>
